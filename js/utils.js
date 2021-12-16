@@ -1,11 +1,10 @@
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 function random(min, max) {
   const num = Math.floor(Math.random() * (max - min + 1)) + min
   return num
 }
 
 // maps style
-// eslint-disable-next-line no-unused-vars
 function mapStyle(element, style) {
   const keys = Object.keys(style)
   keys.forEach((key) => {
@@ -14,9 +13,14 @@ function mapStyle(element, style) {
   })
 }
 
-// collision detect
+function randVelocity(min, max) {
+  if (random(min, max) === 0) {
+    return random(min, max)
+  }
+  return random(min, max)
+}
 
-// eslint-disable-next-line no-unused-vars
+// collision detection
 function isCollision(rect1, rect2) {
   if (
     rect1.x < rect2.x + rect2.width &&
@@ -28,3 +32,17 @@ function isCollision(rect1, rect2) {
   }
   return false
 }
+
+// function animate(boxesInstance, boxes) {
+//   // not able to make it work in oop
+//   function loop() {
+//     for (let i = 0; i < boxesInstance.boxes.length; i += 1) {
+//       boxesInstance.boxes[i].createBox()
+//       // Beware this might crash you device
+//       boxesInstance.boxes[i].collisionDetect(boxes)
+//       boxesInstance.boxes[i].moveBox()
+//     }
+//     requestAnimationFrame(loop)
+//   }
+//   loop()
+// }
